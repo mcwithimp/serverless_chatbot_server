@@ -1,0 +1,13 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "LambdaGet",
+      "Effect": "Allow",
+      "Action": ["dynamodb:Scan"],
+      "Resource": [
+        "arn:aws:dynamodb:ap-northeast-2:601277122387:table/chat-messages"
+      ]
+    }
+  ]
+}

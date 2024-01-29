@@ -1,0 +1,29 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:ap-northeast-2:601277122387:*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:DescribeStream",
+        "dynamodb:GetRecords",
+        "dynamodb:GetShardIterator",
+        "dynamodb:ListStreams"
+      ],
+      "Resource": "arn:aws:dynamodb:ap-northeast-2:601277122387:table/chat-messages/stream/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["sns:Publish"],
+      "Resource": ["*"]
+    }
+  ]
+}
