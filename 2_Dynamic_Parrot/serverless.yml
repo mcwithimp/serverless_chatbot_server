@@ -1,0 +1,15 @@
+service: <<YOUR LAMBDA NAME>>
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-northeast-2
+
+functions:
+  api:
+    handler: index.handler
+    url:
+      cors: true
+    timeout: 900
+    memorySize: 1024
