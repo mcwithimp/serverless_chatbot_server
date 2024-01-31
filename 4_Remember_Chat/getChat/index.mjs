@@ -1,3 +1,4 @@
+// 4_Remember_Chat - getChat
 import { DynamoDBClient, ScanCommand } from "@aws-sdk/client-dynamodb";
 const client = new DynamoDBClient({});
 

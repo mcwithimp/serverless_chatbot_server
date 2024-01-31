@@ -1,0 +1,18 @@
+# 3_Bot_API
+service: kbh-lambda-post-msg-<<YOUR NUMBER>>
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-northeast-2
+
+functions:
+  api:
+    handler: index.handler
+    url:
+      cors: true
+    timeout: 900
+    memorySize: 1024
+    environment: # serverless.env.yml에 정의한 환경 변수를 여기에 등록
+      OPENAI_API_KEY: ${file(serverless.env.yml):OPENAI_API_KEY}

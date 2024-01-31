@@ -1,3 +1,4 @@
+// 6_Notification - getChat
 import { DynamoDBClient, ScanCommand } from "@aws-sdk/client-dynamodb";
 
 const client = new DynamoDBClient({});
@@ -9,7 +10,7 @@ export const handler = async function (event) {
       Select: "ALL_ATTRIBUTES",
     });
     const result = await client.send(command);
-    console.log(result);
+    console.log("[DynamoDB Scan Result]: result");
     const items =
       result.Items?.map((item) => {
         return {

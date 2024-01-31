@@ -1,4 +1,5 @@
-service: <<YOUR LAMBDA NAME>>
+# 2_Dynamic_Parrot
+service: kbh-lambda-post-msg-<<YOUR NUMBER>>
 frameworkVersion: "3"
 
 provider:

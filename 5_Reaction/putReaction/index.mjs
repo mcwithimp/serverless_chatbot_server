@@ -1,3 +1,4 @@
+// 5_Reaction - putReaction
 import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb";
 const client = new DynamoDBClient({});
 

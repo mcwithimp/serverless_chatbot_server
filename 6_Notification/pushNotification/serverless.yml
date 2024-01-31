@@ -1,0 +1,37 @@
+# 6_Notification - pushNotification
+service: kbh-lambda-push-notification-<<YOUR NUMBER>>
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-northeast-2
+  iam:
+    role:
+      name: lambda-role-stream-dynamodb
+      path: /custom-role-path/
+      statements:
+        - Effect: "Allow"
+          Resource: "arn:aws:logs:ap-northeast-2:601277122387:*"
+          Action:
+            - "logs:CreateLogGroup"
+            - "logs:CreateLogStream"
+            - "logs:PutLogEvents"
+        - Effect: "Allow"
+          Resource: "arn:aws:dynamodb:ap-northeast-2:601277122387:table/chat-messages/stream/*"
+          Action:
+            - "dynamodb:DescribeStream"
+            - "dynamodb:GetRecords"
+            - "dynamodb:GetShardIterator"
+            - "dynamodb:ListStreams"
+        - Effect: "Allow"
+          Resource: "*"
+          Action: "sns:Publish"
+
+functions:
+  api:
+    handler: index.handler
+    url:
+      cors: true
+    timeout: 900
+    memorySize: 1024

@@ -1,3 +1,4 @@
+// 5_Reaction - postMessage
 import OpenAI from "openai";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 const client = new DynamoDBClient({});

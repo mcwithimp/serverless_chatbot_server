@@ -1,3 +1,4 @@
+// 2_Dynamic_Parrot
 export const handler = async (event, context) => {
   const body = event.body;
   console.log("[From Client]: ", body);

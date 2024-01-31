@@ -1,3 +1,4 @@
+// 6_Notification - putReaction
 import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb";
 const client = new DynamoDBClient({});
 
@@ -31,7 +32,8 @@ export const handler = async function (event) {
       },
       ReturnValues: "ALL_NEW",
     });
-    throw new Error("any error");
+
+    await client.send(command);
     return done(null, true);
   } catch (err) {
     return done(err);

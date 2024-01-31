@@ -1,0 +1,24 @@
+# 5_Reaction - getChat
+service: kbh-lambda-get-chat-<<YOUR NUMBER>>
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-northeast-2
+  iam:
+    role:
+      name: lambda-role-scan-dynamodb
+      path: /custom-role-path/
+      statements:
+        - Effect: "Allow"
+          Resource: "arn:aws:dynamodb:ap-northeast-2:601277122387:table/chat-messages"
+          Action: "dynamodb:Scan"
+
+functions:
+  postMessage:
+    handler: index.handler
+    url:
+      cors: true
+    timeout: 900
+    memorySize: 1024

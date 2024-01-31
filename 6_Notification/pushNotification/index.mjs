@@ -1,3 +1,4 @@
+// 6_Notification - pushNotification
 import { SNSClient, PublishCommand } from "@aws-sdk/client-sns";
 const client = new SNSClient({});
 

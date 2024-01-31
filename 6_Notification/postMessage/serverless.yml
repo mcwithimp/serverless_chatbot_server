@@ -1,0 +1,26 @@
+# 6_Notification - postMessage
+service: kbh-lambda-post-message-<<YOUR NUMBER>>
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-northeast-2
+  iam:
+    role:
+      name: lambda-role-put-dynamodb
+      path: /custom-role-path/
+      statements:
+        - Effect: "Allow"
+          Resource: "arn:aws:dynamodb:ap-northeast-2:601277122387:table/chat-messages"
+          Action: "dynamodb:PutItem"
+
+functions:
+  api:
+    handler: index.handler
+    url:
+      cors: true
+    timeout: 900
+    memorySize: 1024
+    environment: # serverless.env.yml에 정의한 환경 변수를 여기에 등록
+      OPENAI_API_KEY: ${file(serverless.env.yml):OPENAI_API_KEY}
