@@ -8,7 +8,7 @@
         "logs:CreateLogStream",
         "logs:PutLogEvents"
       ],
-      "Resource": "arn:aws:logs:ap-northeast-2:601277122387:*"
+      "Resource": "arn:aws:logs:ap-northeast-2:<<AWS ACCOUNT ID>>:*"
     },
     {
       "Effect": "Allow",
@@ -18,7 +18,7 @@
         "dynamodb:GetShardIterator",
         "dynamodb:ListStreams"
       ],
-      "Resource": "arn:aws:dynamodb:ap-northeast-2:601277122387:table/chat-messages/stream/*"
+      "Resource": "arn:aws:dynamodb:ap-northeast-2:<<AWS ACCOUNT ID>>:table/chat-messages/stream/*"
     },
     {
       "Effect": "Allow",

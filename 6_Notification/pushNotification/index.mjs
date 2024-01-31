@@ -14,7 +14,7 @@ export const handler = async (event, context, callback) => {
         const input = {
           Subject: "GPT response got disliked!",
           Message: "GPT response:  \n" + text,
-          TopicArn: "arn:aws:sns:ap-northeast-2:601277122387:Dislike",
+          TopicArn: "arn:aws:sns:ap-northeast-2:<<AWS ACCOUNT ID>>:Dislike",
         };
         const command = new PublishCommand(input);
 
